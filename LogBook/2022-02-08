@@ -1,0 +1,4 @@
+Define the bitboard type U64 (64 bits -> 64 squares)
+Define bit manipulation functions
+Print the bitboard
+Refactoring functions into bitboard files
