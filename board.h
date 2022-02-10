@@ -2,6 +2,7 @@
 #define BOARD_H
 
     #include "defs.h"
+
     /*
     Six boards per color (Whte, Black)
     Board for: Pawn, Knight, Bishop, Rook, Queen, King
@@ -21,5 +22,6 @@
     U64 set_white_king();
     U64 set_black_king();
 
+    void print_board();
     void reset_board();
 #endif

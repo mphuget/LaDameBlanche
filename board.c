@@ -1,4 +1,5 @@
-#include "defs.h"
+#include <stdio.h>
+
 #include "bitboard.h"
 #include "board.h"
 
@@ -40,8 +41,8 @@ U64 set_white_knights() {
 
     U64 new_board = 0ULL;
 
-    set_bit(new_board, b2);
-    set_bit(new_board, g2);
+    set_bit(new_board, b1);
+    set_bit(new_board, g1);
 
     return new_board;
 
@@ -62,8 +63,8 @@ U64 set_white_bishops() {
 
     U64 new_board = 0ULL;
 
-    set_bit(new_board, c2);
-    set_bit(new_board, f2);
+    set_bit(new_board, c1);
+    set_bit(new_board, f1);
 
     return new_board;
 
@@ -148,36 +149,80 @@ void reset_board() {
     board[0] = set_white_pawns();
 
     //set black pawns
-    board[1] = set_black_pawns();
+    board[6] = set_black_pawns();
 
     //set white knights
-    board[2] = set_white_knights();
+    board[1] = set_white_knights();
 
     //set black knights
-    board[3] = set_black_knights();
+    board[7] = set_black_knights();
 
     //set white bishops
-    board[4] = set_white_bishops();
+    board[2] = set_white_bishops();
 
     //set black bishops
-    board[5] = set_black_bishops();
+    board[8] = set_black_bishops();
 
     //set white rooks
-    board[6] = set_white_rooks();
+    board[3] = set_white_rooks();
 
     //set black rooks
-    board[7] = set_black_rooks();
+    board[9] = set_black_rooks();
 
     //set white queen
-    board[8] = set_white_queen();
+    board[4] = set_white_queen();
 
     //set black queen
-    board[9] = set_black_queen();
+    board[10] = set_black_queen();
 
     //set white king
-    board[10] = set_white_king();
+    board[5] = set_white_king();
 
     //set black king
     board[11] = set_black_king();
 
+}
+
+// print board
+void print_board()
+{
+    // print offset
+    printf("\n");
+
+    // loop over board ranks
+    for (int rank = 0; rank < 8; rank++)
+    {
+        // loop ober board files
+        for (int file = 0; file < 8; file++)
+        {
+            // init square
+            int square = rank * 8 + file;
+            
+            // print ranks
+            if (!file)
+                printf("  %d ", 8 - rank);
+            
+            // define piece variable
+            int piece = -1;
+            
+            // loop over all piece bitboards
+            for (int bb_piece = P; bb_piece <= k; bb_piece++)
+            {
+                // if there is a piece on current square
+                if (get_bit(board[bb_piece], square))
+                    // get piece code
+                    piece = bb_piece;
+            }
+            
+            printf(" %c", (piece == -1) ? '.' : ascii_pieces[piece]);
+
+        }
+        
+        // print new line every rank
+        printf("\n");
+    }
+    
+    // print board files
+    printf("\n     a b c d e f g h\n\n");
+    
 }
