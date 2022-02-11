@@ -9,6 +9,15 @@
     */
     U64 board[12];
 
+    // side to move
+    int side;
+
+    // enpassant square
+    static int enpassant = no_sq; 
+
+    // castling rights
+    int castle;
+
     U64 set_white_pawns();
     U64 set_black_pawns();
     U64 set_white_knights();

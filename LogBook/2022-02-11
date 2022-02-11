@@ -1,0 +1,3 @@
+Add castling, en passant square and side to move
+Generate moves for pawns (store the different possible moves
+for all the squares on the board)
