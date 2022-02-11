@@ -2,7 +2,7 @@
 #include "bitboard.h"
 
 // generate pawn attacks
-U64 generate_move_pawn(int side, int square)
+U64 generate_pawn_attacks(int side, int square)
 {
     // result attacks bitboard
     U64 attacks = 0ULL;

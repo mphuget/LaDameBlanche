@@ -19,6 +19,6 @@
     // pawn attacks table [side][square]
     U64 pawn_attacks[2][64];
 
-    U64 generate_move_pawn(int side, int square);
+    U64 generate_pawn_attacks(int side, int square);
 
 #endif
