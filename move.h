@@ -20,5 +20,6 @@
     U64 pawn_attacks[2][64];
 
     U64 generate_pawn_attacks(int side, int square);
-
+    void generate_moves(int side);
+    
 #endif

@@ -3,6 +3,13 @@
 #include "bitboard.h"
 #include "board.h"
 
+/**************************************************
+ * 
+ * Settting the initial board
+ * 
+ * ************************************************/
+//No question on performance here since it is called
+//before playing
 U64 set_white_pawns() {
 
     U64 new_board = 0ULL;
@@ -142,6 +149,7 @@ U64 set_black_king() {
     return new_board;
 
 }
+
 
 void reset_board() {
 
